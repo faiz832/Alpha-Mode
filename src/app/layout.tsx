@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Comic_Neue } from "next/font/google";
+import { Doto } from "next/font/google";
 import "./globals.css";
 
-const comicNeue = Comic_Neue({
+const doto = Doto({
+  variable: "--font-doto",
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-comic-neue",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${comicNeue.variable} font-sans antialiased`}>{children}</body>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet" />
+      </head>
+      <body className={`${doto.variable} font-sans antialiased`}>{children}</body>
     </html>
   );
 }
