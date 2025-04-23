@@ -27,7 +27,7 @@ export default function CurrentTime() {
   });
 
   return (
-    <div className="font-[doto] text-center mb-6">
+    <div className="relative font-[doto] text-center mb-6 z-10">
       <div className="text-xl font-bold">
         {day}, {date}
       </div>

@@ -33,7 +33,13 @@ export default function CircularCountdown({ startTime, endTime, size = 150 }: Pr
 
   return (
     <svg width={size} height={size}>
+      {/* Background hitam transparan */}
+      <circle cx={size / 2} cy={size / 2} r={radius} fill="rgba(0,0,0,0.7)" />
+
+      {/* Lingkaran latar */}
       <circle cx={size / 2} cy={size / 2} r={radius} stroke="#C3CDD7" strokeWidth="8" fill="none" />
+
+      {/* Lingkaran progress */}
       <circle cx={size / 2} cy={size / 2} r={radius} stroke="#57585A" strokeWidth="8" fill="none" strokeDasharray={circumference} strokeDashoffset={offset} strokeLinecap="round" transform={`rotate(-90 ${size / 2} ${size / 2})`} />
     </svg>
   );
