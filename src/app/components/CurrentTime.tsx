@@ -3,12 +3,16 @@
 import { useEffect, useState } from "react";
 
 export default function CurrentTime() {
-  const [now, setNow] = useState(new Date());
+  const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => setNow(new Date()), 1000);
+    const update = () => setNow(new Date());
+    update(); // Set initial time
+    const interval = setInterval(update, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  if (!now) return null; // Avoid hydration mismatch
 
   const day = now.toLocaleDateString("en-US", { weekday: "long" });
   const date = now.toLocaleDateString("en-US", {
