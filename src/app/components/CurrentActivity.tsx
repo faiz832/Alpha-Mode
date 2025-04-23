@@ -28,7 +28,7 @@ export default function CurrentActivity() {
   return (
     <div className="relative flex flex-col items-center justify-center mt-6 text-center">
       {startTime && endTime && (
-        <div className="absolute">
+        <div className="absolute -top-60">
           <CircularCountdown startTime={startTime} endTime={endTime} size={550} />
         </div>
       )}
