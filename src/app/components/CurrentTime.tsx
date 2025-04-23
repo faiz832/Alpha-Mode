@@ -10,13 +10,13 @@ export default function CurrentTime() {
     return () => clearInterval(interval);
   }, []);
 
-  const day = now.toLocaleDateString("id-ID", { weekday: "long" });
-  const date = now.toLocaleDateString("id-ID", {
+  const day = now.toLocaleDateString("en-US", { weekday: "long" });
+  const date = now.toLocaleDateString("en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
-  const time = now.toLocaleTimeString("id-ID", {
+  const time = now.toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",

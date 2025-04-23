@@ -32,10 +32,10 @@ export default function CurrentActivity() {
           <CircularCountdown startTime={startTime} endTime={endTime} size={550} />
         </div>
       )}
-      <h2 className="text-2xl font-bold mb-2 relative z-10">Sekarang</h2>
-      <div className="text-4xl font-extrabold relative z-10">{activity}</div>
-      <p className="text-sm text-muted-foreground mt-2 relative z-10">
-        Kegiatan berikutnya: <span className="font-semibold">{nextTime}</span>
+      <h2 className="text-xl font-bold mb-2 relative z-10">Now Running</h2>
+      <div className="max-w-sm text-center text-4xl font-extrabold relative z-10">{activity}</div>
+      <p className="text-sm text-muted-foreground mt-4 relative z-10">
+        Next activity in <span className="font-semibold">{nextTime}</span>
       </p>
     </div>
   );
