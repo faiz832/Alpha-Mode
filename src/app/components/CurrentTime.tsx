@@ -16,14 +16,14 @@ export default function CurrentTime() {
     month: "long",
     year: "numeric",
   });
-  const time = now.toLocaleTimeString("en-US", {
+  const time = now.toLocaleTimeString("id-ID", {
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
   });
 
   return (
-    <div className="font-[Doto] text-center mb-6">
+    <div className="font-[doto] text-center mb-6">
       <div className="text-xl font-bold">
         {day}, {date}
       </div>
