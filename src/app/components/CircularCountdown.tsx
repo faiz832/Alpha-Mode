@@ -5,10 +5,11 @@ import { useEffect, useState } from "react";
 interface Props {
   startTime: Date;
   endTime: Date;
+  size?: number; // default 150
 }
 
-export default function CircularCountdown({ startTime, endTime }: Props) {
-  const radius = 60;
+export default function CircularCountdown({ startTime, endTime, size = 150 }: Props) {
+  const radius = size / 2 - 8;
   const circumference = 2 * Math.PI * radius;
   const [progress, setProgress] = useState(0);
 
@@ -31,27 +32,9 @@ export default function CircularCountdown({ startTime, endTime }: Props) {
   const offset = circumference * (1 - progress);
 
   return (
-    <svg width="150" height="150" className="absolute">
-      <circle
-        cx="75"
-        cy="75"
-        r={radius}
-        stroke="#e5e7eb" // gray-200
-        strokeWidth="8"
-        fill="none"
-      />
-      <circle
-        cx="75"
-        cy="75"
-        r={radius}
-        stroke="#facc15" // yellow-400
-        strokeWidth="8"
-        fill="none"
-        strokeDasharray={circumference}
-        strokeDashoffset={offset}
-        strokeLinecap="round"
-        transform="rotate(-90 75 75)"
-      />
+    <svg width={size} height={size}>
+      <circle cx={size / 2} cy={size / 2} r={radius} stroke="#e5e7eb" strokeWidth="8" fill="none" />
+      <circle cx={size / 2} cy={size / 2} r={radius} stroke="#facc15" strokeWidth="8" fill="none" strokeDasharray={circumference} strokeDashoffset={offset} strokeLinecap="round" transform={`rotate(-90 ${size / 2} ${size / 2})`} />
     </svg>
   );
 }

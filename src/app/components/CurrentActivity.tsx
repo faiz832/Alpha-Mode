@@ -16,12 +16,12 @@ export default function CurrentActivity() {
       const { activity, nextAt, start, end } = getCurrentActivity(now);
       setActivity(activity);
       setNextTime(nextAt);
-      setStartTime(start);
-      setEndTime(end);
+      setStartTime(parseTime(start));
+      setEndTime(parseTime(end));
     };
 
     update();
-    const interval = setInterval(update, 30 * 1000); // update tiap 30 detik
+    const interval = setInterval(update, 30 * 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -29,7 +29,7 @@ export default function CurrentActivity() {
     <div className="relative flex flex-col items-center justify-center mt-6 text-center">
       {startTime && endTime && (
         <div className="absolute">
-          <CircularCountdown startTime={parseTime(startTime)} endTime={parseTime(endTime)} />
+          <CircularCountdown startTime={startTime} endTime={endTime} size={550} />
         </div>
       )}
       <h2 className="text-2xl font-bold mb-2 relative z-10">Sekarang</h2>
